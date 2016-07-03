@@ -39,26 +39,25 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>Flash Light</title>
 </head>
 
-<body>
-    <div class="app">
-        <button onclick="window.plugins.flashlight.toggle()" style="width:100%;height:100px;"> ON/OFF</button>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
+<body style="background: url(img/on.png);" onclick="window.plugins.flashlight.toggle()">
+        
+	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-	
 		window.plugins.flashlight.available(function(isAvailable) {
 			  if (isAvailable) {
 
 				// switch on
 				window.plugins.flashlight.switchOn(); // success/error callbacks may be passed
+				document.getElementsByTagName("body")[0].setAttribute("style", "background: url(img/off.png");
 
 				// switch off after 3 seconds
 				setTimeout(function() {
 				  window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
+				  document.getElementsByTagName("body")[0].setAttribute("style", "background: url(img/on.png");
 				}, 3000);
 
 			  } else {
