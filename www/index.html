@@ -39,25 +39,34 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>Flash Light</title>
 </head>
 
-<body style="background: url(img/on.png);" onclick="window.plugins.flashlight.toggle()">
+<body>
         
 	<script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
+	
+		jQuery(document).ready(function(){
+			jQuery('body').click(function(){
+				window.plugins.flashlight.toggle();
+				 jQuery(this).toggleClass("on");
+
+			});
+		});
 		window.plugins.flashlight.available(function(isAvailable) {
 			  if (isAvailable) {
 
 				// switch on
 				window.plugins.flashlight.switchOn(); // success/error callbacks may be passed
-				document.getElementsByTagName("body")[0].setAttribute("style", "background: url(img/off.png");
-
+	
 				// switch off after 3 seconds
 				setTimeout(function() {
 				  window.plugins.flashlight.switchOff(); // success/error callbacks may be passed
-				  document.getElementsByTagName("body")[0].setAttribute("style", "background: url(img/on.png");
 				}, 3000);
 
 			  } else {
