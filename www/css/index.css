@@ -46,8 +46,8 @@ body {
     text-transform:uppercase;
     width:100%;
 }
-body { background-image: url(img/off.png); }
-body.on { background-image: url(img/on.png); }
+body { background-image: url(../img/off.png); }
+body.on { background-image: url(../img/on.png); }
 /* Portrait layout (default) */
 .app {
    /* background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
